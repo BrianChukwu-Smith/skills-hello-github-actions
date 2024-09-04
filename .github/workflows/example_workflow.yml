@@ -1,0 +1,19 @@
+name: A simple Workflow
+on: 
+  push:
+jobs:
+  build:
+    name: Download a JDK, show its version
+    runs-on: efx-ubuntu
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: get JDK
+        id: getJDK
+        uses: Equifax/cicd-setup-java@v1
+        with:
+          jdkVersion: 17
+      - name: Show JDK
+        run: |
+          echo "JDK was downloaded from ${{ steps.getJDK.outputs.nexusUrl }}"
+          echo "Java Home is $JAVA_HOME"
