@@ -4,7 +4,7 @@ on:
 jobs:
   build:
     name: Download a JDK, show its version
-    runs-on: efx-ubuntu
+    runs-on: ews-vs-rg01
     steps:
       - name: Checkout
         uses: actions/checkout@v3
